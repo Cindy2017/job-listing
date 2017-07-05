@@ -1,5 +1,7 @@
-class JobsController < ApplicationController
+class Admin::JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :updat, :edit, :destroy]
+  before_action :require_is_admin
+
   def show
     @job = Job.find(params[:id])
   end
